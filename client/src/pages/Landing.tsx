@@ -248,7 +248,7 @@ export default function Landing() {
     <div className="min-h-screen bg-[oklch(0.97_0.01_80)]">
 
       {/* â"€â"€ Nav â"€â"€ */}
-      <div className={cn("sticky top-0 z-50 transition-all duration-300 ease-out", scrolled ? "px-5 pt-3" : "")}>
+      <div className={cn("sticky top-0 z-50 transition-all duration-300 ease-out bg-[#0a0b0f]", scrolled ? "px-5 pt-3" : "")}>
         <nav className={cn(
           "transition-all duration-300 ease-out",
           scrolled
