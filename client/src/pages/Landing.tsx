@@ -2,7 +2,7 @@
 import { Link } from "wouter";
 import {
   Shield, CheckCircle, ArrowRight, Star, Users, BookOpen,
-  BarChart3, Lock, Presentation, Settings, Zap, Bell,
+  BarChart3, Lock, Presentation, Settings, Zap, Bell, Menu, X,
 } from "lucide-react";
 import { useDemo } from "@/contexts/DemoContext";
 import { Button } from "@/components/ui/button";
@@ -237,6 +237,7 @@ const howItWorksSteps = [
 export default function Landing() {
   const { enableDemoMode } = useDemo();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -247,7 +248,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-[oklch(0.97_0.01_80)]">
 
-      {/* â"€â"€ Nav â"€â"€ */}
+      {/* -- Nav -- */}
       <div className={cn("sticky top-0 z-50 transition-all duration-300 ease-out", scrolled ? "px-5 pt-3" : "")}>
         <nav className={cn(
           "transition-all duration-300 ease-out",
@@ -255,11 +256,14 @@ export default function Landing() {
             ? "bg-[oklch(0.18_0.06_255/0.95)] backdrop-blur-md rounded-2xl shadow-[0_8px_32px_oklch(0.12_0.06_255/0.45)]"
             : "bg-[oklch(0.18_0.06_255)]"
         )}>
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6">
-            <div className="flex items-center gap-3">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center gap-4">
+            {/* Logo */}
+            <div className="flex items-center gap-2.5 flex-shrink-0">
               <img src={SHIELD_IMG} alt="FaithShield247" className="w-8 h-9 object-contain" />
-              <span className="text-white font-semibold text-lg font-display">FaithShield247</span>
+              <span className="text-white font-semibold text-base md:text-lg font-display">FaithShield247</span>
             </div>
+
+            {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-6 ml-8">
               {navLinks.map((item) => (
                 <a key={item.label} href={item.href} className="text-white/60 hover:text-white text-sm transition-colors">
@@ -267,16 +271,16 @@ export default function Landing() {
                 </a>
               ))}
             </div>
-            <div className="ml-auto flex items-center gap-3">
-              <Link href="/login">
-                <Button
-                  variant="ghost" size="sm"
-                  className="text-[oklch(0.72_0.12_75)] hover:text-[oklch(0.85_0.09_75)] hover:bg-[oklch(0.72_0.12_75/0.1)] text-xs gap-1.5 border border-[oklch(0.72_0.12_75/0.3)]"
-                  onClick={(e) => { e.preventDefault(); enableDemoMode(); window.location.href = "/login"; }}
-                >
-                  <Presentation size={13} /> Demo
-                </Button>
-              </Link>
+
+            {/* Desktop right buttons */}
+            <div className="hidden md:flex ml-auto items-center gap-3">
+              <Button
+                variant="ghost" size="sm"
+                className="text-[oklch(0.72_0.12_75)] hover:text-[oklch(0.85_0.09_75)] hover:bg-[oklch(0.72_0.12_75/0.1)] text-xs gap-1.5 border border-[oklch(0.72_0.12_75/0.3)]"
+                onClick={() => { enableDemoMode(); window.location.href = "/login"; }}
+              >
+                <Presentation size={13} /> Demo
+              </Button>
               <Link href="/login">
                 <Button variant="ghost" size="sm" className="text-white/70 hover:text-white hover:bg-white/10 text-sm">
                   Sign In
@@ -288,7 +292,53 @@ export default function Landing() {
                 </Button>
               </Link>
             </div>
+
+            {/* Mobile right — CTA + hamburger */}
+            <div className="flex md:hidden ml-auto items-center gap-2">
+              <Link href="/signup">
+                <Button size="sm" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 text-xs px-3">
+                  Get Started
+                </Button>
+              </Link>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white/70 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
+
+          {/* Mobile dropdown menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-white/10 px-4 py-4 space-y-1">
+              {navLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2.5 text-white/70 hover:text-white hover:bg-white/8 rounded-lg text-sm transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="ghost" size="sm" className="w-full text-white/70 hover:text-white hover:bg-white/10 text-sm justify-center">
+                    Sign In
+                  </Button>
+                </Link>
+                <Button
+                  size="sm"
+                  className="w-full text-[oklch(0.72_0.12_75)] hover:text-[oklch(0.85_0.09_75)] hover:bg-[oklch(0.72_0.12_75/0.1)] text-xs gap-1.5 border border-[oklch(0.72_0.12_75/0.3)] bg-transparent justify-center"
+                  onClick={() => { enableDemoMode(); window.location.href = "/login"; setMobileMenuOpen(false); }}
+                >
+                  <Presentation size={13} /> View Demo
+                </Button>
+              </div>
+            </div>
+          )}
         </nav>
       </div>
 
