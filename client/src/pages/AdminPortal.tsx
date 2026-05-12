@@ -1,4 +1,4 @@
-/* FaithShield247 Church/School Admin Portal — Sacred Modernism
+﻿/* FaithShield247 Church/School Admin Portal â€” Sacred Modernism
  * Distinct admin interface: group subscriptions, aggregate analytics, curriculum distribution
  * Deep navy + gold palette, Playfair Display headings
  */
@@ -16,11 +16,11 @@ import { Switch } from "@/components/ui/switch";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 type AdminTab = "overview" | "members" | "subscriptions" | "curriculum" | "analytics" | "settings";
 
-/* ─── Mock Data ─── */
+/* â”€â”€â”€ Mock Data â”€â”€â”€ */
 const orgInfo = {
   name: "Grace Community Church",
   type: "Church",
@@ -37,19 +37,19 @@ const members = [
   { id: 2, family: "The Williams", email: "williams@email.com", children: 2, status: "active", joined: "Feb 2026", lastActive: "Yesterday", protection: 88 },
   { id: 3, family: "The Davis Family", email: "davis@email.com", children: 4, status: "active", joined: "Jan 2026", lastActive: "Today", protection: 97 },
   { id: 4, family: "The Martinez Family", email: "martinez@email.com", children: 1, status: "active", joined: "Mar 2026", lastActive: "2 days ago", protection: 91 },
-  { id: 5, family: "The Thompson Family", email: "thompson@email.com", children: 2, status: "pending", joined: "Mar 2026", lastActive: "—", protection: 0 },
+  { id: 5, family: "The Thompson Family", email: "thompson@email.com", children: 2, status: "pending", joined: "Mar 2026", lastActive: "â€”", protection: 0 },
   { id: 6, family: "The Anderson Family", email: "anderson@email.com", children: 3, status: "active", joined: "Feb 2026", lastActive: "Today", protection: 85 },
   { id: 7, family: "The Taylor Family", email: "taylor@email.com", children: 2, status: "inactive", joined: "Jan 2026", lastActive: "2 weeks ago", protection: 72 },
   { id: 8, family: "The Wilson Family", email: "wilson@email.com", children: 1, status: "active", joined: "Mar 2026", lastActive: "Today", protection: 96 },
 ];
 
 const curriculumItems = [
-  { id: 1, title: "Digital Discipleship: Week 1 — Guarding Your Eyes", type: "lesson", duration: "45 min", assigned: 62, completed: 48, category: "Foundation" },
+  { id: 1, title: "Digital Discipleship: Week 1 â€” Guarding Your Eyes", type: "lesson", duration: "45 min", assigned: 62, completed: 48, category: "Foundation" },
   { id: 2, title: "Family Devotional: Screen Time & Sabbath Rest", type: "devotional", duration: "20 min", assigned: 87, completed: 71, category: "Family" },
   { id: 3, title: "Teen Workshop: Identity in Christ vs. Social Media", type: "workshop", duration: "60 min", assigned: 34, completed: 22, category: "Youth" },
   { id: 4, title: "Parent Guide: Having the Online Safety Conversation", type: "guide", duration: "15 min read", assigned: 87, completed: 55, category: "Parents" },
-  { id: 5, title: "Kids Activity: The Armor of God — Digital Edition", type: "activity", duration: "30 min", assigned: 45, completed: 38, category: "Children" },
-  { id: 6, title: "Family Movie Night: Discussion Guide — The Social Dilemma", type: "guide", duration: "10 min read", assigned: 87, completed: 29, category: "Family" },
+  { id: 5, title: "Kids Activity: The Armor of God â€” Digital Edition", type: "activity", duration: "30 min", assigned: 45, completed: 38, category: "Children" },
+  { id: 6, title: "Family Movie Night: Discussion Guide â€” The Social Dilemma", type: "guide", duration: "10 min read", assigned: 87, completed: 29, category: "Family" },
 ];
 
 const aggregateStats = {
@@ -105,7 +105,7 @@ export default function AdminPortal() {
             <h1 className="text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
               FaithShield247 <span className="text-[oklch(0.72_0.12_75)]">Admin Portal</span>
             </h1>
-            <p className="text-xs text-white/50">{orgInfo.name} · {orgInfo.type}</p>
+            <p className="text-xs text-white/50">{orgInfo.name} Â· {orgInfo.type}</p>
           </div>
           <Badge className="bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)] border-0 text-xs">
             {orgInfo.plan}
@@ -135,7 +135,7 @@ export default function AdminPortal() {
 
       {/* Content */}
       <main className="max-w-7xl mx-auto px-6 py-6">
-        {/* ─── OVERVIEW TAB ─── */}
+        {/* â”€â”€â”€ OVERVIEW TAB â”€â”€â”€ */}
         {activeTab === "overview" && (
           <div className="space-y-6 animate-fade-up">
             {/* Stats grid */}
@@ -221,7 +221,7 @@ export default function AdminPortal() {
           </div>
         )}
 
-        {/* ─── MEMBERS TAB ─── */}
+        {/* â”€â”€â”€ MEMBERS TAB â”€â”€â”€ */}
         {activeTab === "members" && (
           <div className="space-y-5 animate-fade-up">
             {/* Invite bar */}
@@ -326,7 +326,7 @@ export default function AdminPortal() {
                               <span className="text-xs text-[oklch(0.5_0.02_255)]">{m.protection}%</span>
                             </div>
                           ) : (
-                            <span className="text-xs text-[oklch(0.6_0.02_255)]">—</span>
+                            <span className="text-xs text-[oklch(0.6_0.02_255)]">â€”</span>
                           )}
                         </td>
                         <td className="px-4 py-3 text-xs text-[oklch(0.5_0.02_255)]">{m.lastActive}</td>
@@ -358,7 +358,7 @@ export default function AdminPortal() {
           </div>
         )}
 
-        {/* ─── SUBSCRIPTIONS TAB ─── */}
+        {/* â”€â”€â”€ SUBSCRIPTIONS TAB â”€â”€â”€ */}
         {activeTab === "subscriptions" && (
           <div className="space-y-5 animate-fade-up">
             {/* Current plan */}
@@ -368,7 +368,7 @@ export default function AdminPortal() {
                   <h3 className="text-lg font-semibold text-[oklch(0.15_0.03_255)]" style={{ fontFamily: "'Playfair Display', serif" }}>
                     {orgInfo.plan}
                   </h3>
-                  <p className="text-sm text-[oklch(0.5_0.02_255)]">{orgInfo.monthlyRate} · Billed monthly</p>
+                  <p className="text-sm text-[oklch(0.5_0.02_255)]">{orgInfo.monthlyRate} Â· Billed monthly</p>
                 </div>
                 <Badge className="bg-emerald-100 text-emerald-700 border-0">Active</Badge>
               </div>
@@ -388,10 +388,10 @@ export default function AdminPortal() {
                 </div>
               </div>
               <div className="flex gap-2">
-                <Button className="bg-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.14_0.06_255)] text-white text-sm gap-2" onClick={() => toast.info("Upgrade flow — coming in full version")}>
+                <Button className="bg-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.14_0.06_255)] text-white text-sm gap-2" onClick={() => toast.info("Upgrade flow â€” coming in full version")}>
                   <Plus size={14} /> Add More Seats
                 </Button>
-                <Button variant="outline" className="text-sm border-[oklch(0.9_0.01_80)]" onClick={() => toast.info("Billing management — coming in full version")}>
+                <Button variant="outline" className="text-sm border-[oklch(0.9_0.01_80)]" onClick={() => toast.info("Billing management â€” coming in full version")}>
                   Manage Billing
                 </Button>
               </div>
@@ -424,7 +424,7 @@ export default function AdminPortal() {
                       ))}
                     </ul>
                     {!plan.current && (
-                      <Button variant="outline" size="sm" className="w-full mt-4 text-xs border-[oklch(0.9_0.01_80)]" onClick={() => toast.info("Plan upgrade — coming in full version")}>
+                      <Button variant="outline" size="sm" className="w-full mt-4 text-xs border-[oklch(0.9_0.01_80)]" onClick={() => toast.info("Plan upgrade â€” coming in full version")}>
                         Upgrade
                       </Button>
                     )}
@@ -435,7 +435,7 @@ export default function AdminPortal() {
           </div>
         )}
 
-        {/* ─── CURRICULUM TAB ─── */}
+        {/* â”€â”€â”€ CURRICULUM TAB â”€â”€â”€ */}
         {activeTab === "curriculum" && (
           <div className="space-y-5 animate-fade-up">
             <div className="flex items-center justify-between">
@@ -445,7 +445,7 @@ export default function AdminPortal() {
                 </h3>
                 <p className="text-sm text-[oklch(0.5_0.02_255)]">Assign faith-based content and track completion across your congregation</p>
               </div>
-              <Button className="bg-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.14_0.06_255)] text-white text-sm gap-2" onClick={() => toast.info("Custom curriculum builder — coming in full version")}>
+              <Button className="bg-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.14_0.06_255)] text-white text-sm gap-2" onClick={() => toast.info("Custom curriculum builder â€” coming in full version")}>
                 <Plus size={14} /> Create Lesson
               </Button>
             </div>
@@ -474,9 +474,9 @@ export default function AdminPortal() {
                       </div>
                       <div className="flex items-center gap-3 text-xs text-[oklch(0.5_0.02_255)]">
                         <span className="capitalize">{item.type}</span>
-                        <span>·</span>
+                        <span>Â·</span>
                         <span>{item.duration}</span>
-                        <span>·</span>
+                        <span>Â·</span>
                         <span>{item.assigned} assigned</span>
                       </div>
                       <div className="flex items-center gap-3 mt-2">
@@ -503,7 +503,7 @@ export default function AdminPortal() {
           </div>
         )}
 
-        {/* ─── ANALYTICS TAB ─── */}
+        {/* â”€â”€â”€ ANALYTICS TAB â”€â”€â”€ */}
         {activeTab === "analytics" && (
           <div className="space-y-5 animate-fade-up">
             <div className="flex items-center justify-between">
@@ -511,7 +511,7 @@ export default function AdminPortal() {
                 <h3 className="text-lg font-semibold text-[oklch(0.15_0.03_255)]" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Congregation Analytics
                 </h3>
-                <p className="text-sm text-[oklch(0.5_0.02_255)]">Anonymised, aggregate data — no individual family data is exposed</p>
+                <p className="text-sm text-[oklch(0.5_0.02_255)]">Anonymised, aggregate data â€” no individual family data is exposed</p>
               </div>
               <Button variant="outline" size="sm" className="text-xs border-[oklch(0.9_0.01_80)] gap-1.5" onClick={() => toast.success("Analytics report exported")}>
                 <Download size={12} /> Export PDF
@@ -578,9 +578,9 @@ export default function AdminPortal() {
               <p className="text-xs text-[oklch(0.5_0.02_255)] mb-4">Based on your congregation's digital activity patterns this month</p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {[
-                  { topic: "Social Media & Self-Worth", reason: "487 social media blocks — teens seeking validation online" },
-                  { topic: "Guarding Your Eyes in a Digital World", reason: "312 adult content blocks — an ongoing challenge for families" },
-                  { topic: "Sabbath Rest from Screens", reason: "Average screen time is 2h 15m/day — opportunity for digital fasting" },
+                  { topic: "Social Media & Self-Worth", reason: "487 social media blocks â€” teens seeking validation online" },
+                  { topic: "Guarding Your Eyes in a Digital World", reason: "312 adult content blocks â€” an ongoing challenge for families" },
+                  { topic: "Sabbath Rest from Screens", reason: "Average screen time is 2h 15m/day â€” opportunity for digital fasting" },
                 ].map((s) => (
                   <div key={s.topic} className="p-4 rounded-lg bg-[oklch(0.97_0.01_80)] border border-[oklch(0.92_0.01_80)]">
                     <p className="text-sm font-medium text-[oklch(0.15_0.03_255)] mb-1">{s.topic}</p>
@@ -592,7 +592,7 @@ export default function AdminPortal() {
           </div>
         )}
 
-        {/* ─── SETTINGS TAB ─── */}
+        {/* â”€â”€â”€ SETTINGS TAB â”€â”€â”€ */}
         {activeTab === "settings" && (
           <div className="space-y-5 animate-fade-up max-w-2xl">
             <div className="bg-white rounded-xl border border-[oklch(0.92_0.01_80)] p-6">
@@ -649,3 +649,4 @@ export default function AdminPortal() {
     </div>
   );
 }
+

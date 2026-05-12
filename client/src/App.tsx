@@ -100,7 +100,7 @@ function App() {
             <DemoProvider>
               <TooltipProvider>
                 <DemoBanner />
-                <Toaster richColors closeButton position="top-right" />
+                <Toaster richColors closeButton position="top-right" offset={72} />
                 <Router />
               </TooltipProvider>
             </DemoProvider>

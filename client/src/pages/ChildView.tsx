@@ -1,4 +1,4 @@
-/* FaithShield247 Child View — Safe Browser & Curated Content Ecosystem
+﻿/* FaithShield247 Child View â€” Safe Browser & Curated Content Ecosystem
  * This is what the child sees: a safe, joyful, faith-rooted digital world
  */
 import { useState } from "react";
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-kids-DBoo5yMAgcgBjyCFseKAe8.webp";
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 const categories = [
   { id: "all", label: "All", icon: Star },
@@ -23,42 +23,42 @@ const content = [
   {
     id: 1, category: "bible", title: "David & Goliath", type: "Story", age: "6+",
     desc: "The story of a young shepherd boy who trusted God and faced a giant with courage.",
-    color: "from-blue-100 to-blue-50", icon: "📖", duration: "8 min read",
+    color: "from-blue-100 to-blue-50", icon: "ðŸ“–", duration: "8 min read",
   },
   {
     id: 2, category: "videos", title: "The Creation Story", type: "Video", age: "5+",
     desc: "A beautiful animated journey through the seven days of creation.",
-    color: "from-purple-100 to-purple-50", icon: "🎬", duration: "12 min",
+    color: "from-purple-100 to-purple-50", icon: "ðŸŽ¬", duration: "12 min",
   },
   {
     id: 3, category: "games", title: "Bible Verse Quest", type: "Game", age: "7+",
     desc: "Learn and memorise Bible verses through fun puzzles and challenges.",
-    color: "from-green-100 to-green-50", icon: "🎮", duration: "Interactive",
+    color: "from-green-100 to-green-50", icon: "ðŸŽ®", duration: "Interactive",
   },
   {
     id: 4, category: "music", title: "Praise Songs for Kids", type: "Music", age: "All",
     desc: "A collection of joyful worship songs and hymns for children.",
-    color: "from-yellow-100 to-yellow-50", icon: "🎵", duration: "45 min",
+    color: "from-yellow-100 to-yellow-50", icon: "ðŸŽµ", duration: "45 min",
   },
   {
     id: 5, category: "bible", title: "Noah's Ark", type: "Story", age: "5+",
-    desc: "God's promise to Noah and the great flood — a story of faith and obedience.",
-    color: "from-cyan-100 to-cyan-50", icon: "⛵", duration: "10 min read",
+    desc: "God's promise to Noah and the great flood â€” a story of faith and obedience.",
+    color: "from-cyan-100 to-cyan-50", icon: "â›µ", duration: "10 min read",
   },
   {
     id: 6, category: "videos", title: "Fruits of the Spirit", type: "Video", age: "6+",
     desc: "Learn about love, joy, peace, patience and more through fun animation.",
-    color: "from-orange-100 to-orange-50", icon: "🍎", duration: "9 min",
+    color: "from-orange-100 to-orange-50", icon: "ðŸŽ", duration: "9 min",
   },
   {
     id: 7, category: "games", title: "Good Samaritan Adventure", type: "Game", age: "8+",
     desc: "An interactive adventure game teaching kindness, empathy, and helping others.",
-    color: "from-rose-100 to-rose-50", icon: "🤝", duration: "Interactive",
+    color: "from-rose-100 to-rose-50", icon: "ðŸ¤", duration: "Interactive",
   },
   {
     id: 8, category: "bible", title: "The Lord's Prayer", type: "Devotional", age: "All",
     desc: "A guided devotional exploring the meaning of the prayer Jesus taught his disciples.",
-    color: "from-indigo-100 to-indigo-50", icon: "🙏", duration: "5 min",
+    color: "from-indigo-100 to-indigo-50", icon: "ðŸ™", duration: "5 min",
   },
 ];
 
@@ -68,10 +68,10 @@ const todayVerse = {
 };
 
 const achievements = [
-  { icon: "⭐", label: "5 Stories Read", earned: true },
-  { icon: "📖", label: "Memory Verse", earned: true },
-  { icon: "🎯", label: "Quiz Champion", earned: false },
-  { icon: "🙏", label: "7-Day Devotion", earned: false },
+  { icon: "â­", label: "5 Stories Read", earned: true },
+  { icon: "ðŸ“–", label: "Memory Verse", earned: true },
+  { icon: "ðŸŽ¯", label: "Quiz Champion", earned: false },
+  { icon: "ðŸ™", label: "7-Day Devotion", earned: false },
 ];
 
 export default function ChildView() {
@@ -124,11 +124,11 @@ export default function ChildView() {
             </div>
             <div className="flex-1">
               <h2 className="text-lg font-bold text-[oklch(0.15_0.03_255)]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Good morning, Emma! 👋
+                Good morning, Emma! ðŸ‘‹
               </h2>
               <p className="text-sm text-[oklch(0.5_0.02_255)]">Today's verse:</p>
               <p className="text-sm text-[oklch(0.18_0.06_255)] italic mt-0.5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                "{todayVerse.text}" — <span className="font-semibold not-italic">{todayVerse.ref}</span>
+                "{todayVerse.text}" â€” <span className="font-semibold not-italic">{todayVerse.ref}</span>
               </p>
             </div>
             <div className="hidden md:block">
@@ -234,7 +234,7 @@ export default function ChildView() {
               <div
                 key={item.id}
                 className={`bg-gradient-to-br ${item.color} rounded-2xl p-4 border border-white/80 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer`}
-                onClick={() => toast.success(`Opening "${item.title}" — full content in production version`)}
+                onClick={() => toast.success(`Opening "${item.title}" â€” full content in production version`)}
               >
                 <div className="text-3xl mb-3">{item.icon}</div>
                 <div className="flex items-center gap-1 mb-1">
@@ -254,3 +254,4 @@ export default function ChildView() {
     </div>
   );
 }
+

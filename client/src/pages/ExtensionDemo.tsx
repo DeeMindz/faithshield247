@@ -1,4 +1,4 @@
-/* FaithShield247 Chrome Extension Prototype — Sacred Modernism
+﻿/* FaithShield247 Chrome Extension Prototype â€” Sacred Modernism
  * Interactive mockup: real-time content filter, safety score, quick-block, whitelist
  * Rendered as a browser window with extension popup overlay
  */
@@ -16,9 +16,9 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import DashboardLayout from "@/components/DashboardLayout";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
-/* ─── URL Database ─── */
+/* â”€â”€â”€ URL Database â”€â”€â”€ */
 interface SiteAnalysis {
   url: string;
   displayUrl: string;
@@ -95,7 +95,7 @@ const siteDatabase: Record<string, SiteAnalysis> = {
 
 const siteKeys = Object.keys(siteDatabase);
 
-/* ─── Whitelist ─── */
+/* â”€â”€â”€ Whitelist â”€â”€â”€ */
 const defaultWhitelist = [
   { domain: "biblegateway.com", category: "Scripture" },
   { domain: "khanacademy.org", category: "Education" },
@@ -275,7 +275,7 @@ export default function ExtensionDemo() {
                     ))}
                   </div>
                   <p className="text-xs text-[oklch(0.6_0.02_255)] italic">
-                    "Above all else, guard your heart, for everything you do flows from it." — Proverbs 4:23
+                    "Above all else, guard your heart, for everything you do flows from it." â€” Proverbs 4:23
                   </p>
                 </div>
               </div>
@@ -496,7 +496,7 @@ export default function ExtensionDemo() {
                     </div>
                     <div className="pt-2 border-t border-[oklch(0.94_0.01_80)]">
                       <p className="text-[10px] text-[oklch(0.6_0.02_255)]">
-                        Protection level: <strong>Strict</strong> · Child: Emma · v2.1.0
+                        Protection level: <strong>Strict</strong> Â· Child: Emma Â· v2.1.0
                       </p>
                     </div>
                   </div>
@@ -541,3 +541,4 @@ export default function ExtensionDemo() {
     </DashboardLayout>
   );
 }
+

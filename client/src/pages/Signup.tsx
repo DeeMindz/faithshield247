@@ -1,7 +1,4 @@
-/* FaithShield247 Signup Page — Sacred Modernism
- * Two-column layout: left hero panel, right multi-field sign-up form with plan selection
- */
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Eye, EyeOff, Shield, ArrowRight, AlertCircle, Loader2, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,8 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth, type SignupData } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
-const KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-kids-DBoo5yMAgcgBjyCFseKAe8.webp";
+const SHIELD_IMG = "/logo.png";
 
 const plans = [
   {
@@ -103,25 +99,38 @@ export default function Signup() {
   const strength = passwordStrength(form.password);
 
   return (
-    <div className="min-h-screen flex" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="min-h-screen flex">
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-5/12 relative flex-col bg-[oklch(0.18_0.06_255)]">
         <div className="relative flex flex-col h-full p-12">
           <div className="flex items-center gap-3">
             <img src={SHIELD_IMG} alt="FaithShield247" className="w-10 h-10 rounded-xl object-cover" />
-            <span className="text-white text-xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <span className="text-white text-xl font-semibold font-display">
               FaithShield247
             </span>
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-3xl font-bold text-white mb-4 leading-tight">
               Protect your children.<br />
               <em className="text-[oklch(0.72_0.12_75)]">Nurture their faith.</em>
             </h2>
             <p className="text-white/60 text-sm leading-relaxed mb-8">
               Join thousands of Christian families who use FaithShield247 to guard their children's hearts and minds in a digital world.
             </p>
-            <img src={KIDS_IMG} alt="Children" className="rounded-2xl w-full object-cover shadow-2xl mb-8" style={{ maxHeight: "220px" }} />
+            {/* Stats grid replacing broken CDN image */}
+            <div className="grid grid-cols-2 gap-3 mb-8">
+              {[
+                { value: "50K+", label: "Families Protected" },
+                { value: "94.7%", label: "AI Accuracy" },
+                { value: "< 50ms", label: "Filter Speed" },
+                { value: "24/7", label: "Always On Guard" },
+              ].map((s) => (
+                <div key={s.label} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                  <div className="text-xl font-bold text-[oklch(0.72_0.12_75)] font-display">{s.value}</div>
+                  <div className="text-white/45 text-xs mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
             <div className="space-y-3">
               {[
                 "14-day free trial, no credit card required",
@@ -144,7 +153,7 @@ export default function Signup() {
         {/* Mobile logo */}
         <div className="lg:hidden flex items-center gap-3 mb-8">
           <img src={SHIELD_IMG} alt="FaithShield247" className="w-9 h-9 rounded-xl object-cover" />
-          <span className="text-[oklch(0.15_0.03_255)] text-lg font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="text-[oklch(0.15_0.03_255)] text-lg font-semibold font-display">
             FaithShield247
           </span>
         </div>
@@ -172,7 +181,7 @@ export default function Signup() {
 
           {step === "plan" ? (
             <>
-              <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2">
                 Choose your plan
               </h1>
               <p className="text-[oklch(0.5_0.02_255)] text-sm mb-6">
@@ -226,16 +235,16 @@ export default function Signup() {
             </>
           ) : (
             <>
-              <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2">
                 Create your account
               </h1>
               <p className="text-[oklch(0.5_0.02_255)] text-sm mb-6">
                 <button onClick={() => setStep("plan")} className="text-[oklch(0.18_0.06_255)] hover:underline">
-                  ← Change plan
+                  â† Change plan
                 </button>
-                {" · "}
+                {" Â· "}
                 <span className="font-medium text-[oklch(0.18_0.06_255)]">
-                  {plans.find((p) => p.id === selectedPlan)?.name} — {plans.find((p) => p.id === selectedPlan)?.price}
+                  {plans.find((p) => p.id === selectedPlan)?.name} â€” {plans.find((p) => p.id === selectedPlan)?.price}
                 </span>
               </p>
 
@@ -303,6 +312,7 @@ export default function Signup() {
                     />
                     <button
                       type="button"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)]"
                     >
@@ -348,11 +358,11 @@ export default function Signup() {
 
                 <p className="text-xs text-[oklch(0.6_0.02_255)]">
                   By creating an account you agree to our{" "}
-                  <button type="button" className="text-[oklch(0.18_0.06_255)] hover:underline" onClick={() => toast.info("Terms of Service — available in full version")}>
+                  <button type="button" className="text-[oklch(0.18_0.06_255)] hover:underline" onClick={() => toast.info("Terms of Service â€” available in full version")}>
                     Terms of Service
                   </button>{" "}
                   and{" "}
-                  <button type="button" className="text-[oklch(0.18_0.06_255)] hover:underline" onClick={() => toast.info("Privacy Policy — available in full version")}>
+                  <button type="button" className="text-[oklch(0.18_0.06_255)] hover:underline" onClick={() => toast.info("Privacy Policy â€” available in full version")}>
                     Privacy Policy
                   </button>
                   .
@@ -376,20 +386,16 @@ export default function Signup() {
           <div className="mt-6 text-center">
             <p className="text-sm text-[oklch(0.5_0.02_255)]">
               Already have an account?{" "}
-              <Link href="/login">
-                <span className="text-[oklch(0.18_0.06_255)] font-semibold hover:underline cursor-pointer">
-                  Sign in
-                </span>
+              <Link href="/login" className="text-[oklch(0.18_0.06_255)] font-semibold hover:underline">
+                Sign in
               </Link>
             </p>
           </div>
 
           <div className="mt-6 pt-6 border-t border-[oklch(0.9_0.01_80)]">
-            <Link href="/">
-              <button className="flex items-center gap-2 text-xs text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)] transition-colors mx-auto">
-                <Shield size={13} />
-                Back to FaithShield247 home
-              </button>
+            <Link href="/" className="flex items-center gap-2 text-xs text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)] transition-colors mx-auto w-fit">
+              <Shield size={13} />
+              Back to FaithShield247 home
             </Link>
           </div>
         </div>
@@ -397,3 +403,4 @@ export default function Signup() {
     </div>
   );
 }
+

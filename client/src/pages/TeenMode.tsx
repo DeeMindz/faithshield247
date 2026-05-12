@@ -1,4 +1,4 @@
-/* FaithShield247 Teen Mode — Sacred Modernism (Age 13-17)
+﻿/* FaithShield247 Teen Mode â€” Sacred Modernism (Age 13-17)
  * Distinct interface: darker tones, modern feel, age-appropriate content
  * Tabs: Feed, Journal, Accountability, Profile
  */
@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 const dailyVerse = {
   text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
@@ -49,7 +49,7 @@ const contentFeed = [
   },
   {
     type: "music",
-    title: "Daily Worship Playlist — March 2026",
+    title: "Daily Worship Playlist â€” March 2026",
     source: "FaithShield247 Curated",
     duration: "45 min",
     icon: Music,
@@ -176,7 +176,7 @@ export default function TeenMode() {
               </div>
               <div className="flex-1">
                 <p className="text-sm font-semibold text-white">{streakDays}-day streak!</p>
-                <p className="text-xs text-white/50">Keep going — your journal entry today will make it {streakDays + 1}.</p>
+                <p className="text-xs text-white/50">Keep going â€” your journal entry today will make it {streakDays + 1}.</p>
               </div>
               <button
                 onClick={() => setActiveTab("journal")}
@@ -194,7 +194,7 @@ export default function TeenMode() {
                   <div
                     key={idx}
                     className="flex items-start gap-3 p-4 rounded-xl bg-[oklch(0.16_0.03_255)] border border-white/6 hover:border-white/12 transition-all group cursor-pointer"
-                    onClick={() => toast.info(`Opening "${item.title}" — content playback coming soon`)}
+                    onClick={() => toast.info(`Opening "${item.title}" â€” content playback coming soon`)}
                   >
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
                       item.type === "video" ? "bg-red-500/15 text-red-400" :
@@ -210,7 +210,7 @@ export default function TeenMode() {
                       </h3>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-xs text-white/40">{item.source}</span>
-                        <span className="text-white/20">·</span>
+                        <span className="text-white/20">Â·</span>
                         <span className="text-xs text-white/40">{item.duration}</span>
                       </div>
                       <Badge className="mt-1.5 bg-white/5 text-white/50 border-white/10 text-[10px] px-1.5 py-0 h-4">
@@ -243,7 +243,7 @@ export default function TeenMode() {
   );
 }
 
-/* ─── Teen Journal Component ─── */
+/* â”€â”€â”€ Teen Journal Component â”€â”€â”€ */
 function TeenJournal() {
   const [entries, setEntries] = useState<{ date: string; prompt: string; text: string; verse: string }[]>([
     {
@@ -338,7 +338,7 @@ function TeenJournal() {
               <div className="flex items-center gap-2 mb-2">
                 <Clock size={12} className="text-white/40" />
                 <span className="text-xs text-white/40">{entry.date}</span>
-                <span className="text-white/20">·</span>
+                <span className="text-white/20">Â·</span>
                 <span className="text-xs text-[oklch(0.72_0.12_75)]">{entry.verse}</span>
               </div>
               <p className="text-xs text-white/50 italic mb-2">"{entry.prompt}"</p>
@@ -351,7 +351,7 @@ function TeenJournal() {
   );
 }
 
-/* ─── Teen Accountability Component ─── */
+/* â”€â”€â”€ Teen Accountability Component â”€â”€â”€ */
 function TeenAccountability() {
   const [partnerInvite, setPartnerInvite] = useState("");
   const [hasPartner] = useState(true);
@@ -376,7 +376,7 @@ function TeenAccountability() {
 
   const checkIns = [
     { date: "Mar 23", message: "Great week! I noticed you've been consistent with your journal. Keep it up!", from: "Pastor Mike" },
-    { date: "Mar 16", message: "Saw some extra screen time on Friday — everything okay? Let's chat at youth group.", from: "Pastor Mike" },
+    { date: "Mar 16", message: "Saw some extra screen time on Friday â€” everything okay? Let's chat at youth group.", from: "Pastor Mike" },
   ];
 
   return (
@@ -404,7 +404,7 @@ function TeenAccountability() {
               <Button
                 size="sm"
                 className="bg-white/8 hover:bg-white/12 text-white border-0 text-xs gap-1.5"
-                onClick={() => toast.info("Messaging feature — coming soon")}
+                onClick={() => toast.info("Messaging feature â€” coming soon")}
               >
                 <MessageCircle size={13} /> Message
               </Button>
@@ -427,7 +427,7 @@ function TeenAccountability() {
                   <span className="text-white/70 font-medium">{day.day}</span>
                   <span className="text-white/50">{day.screenTime}</span>
                   <span className={day.blocked > 2 ? "text-amber-400" : "text-white/50"}>{day.blocked}</span>
-                  <span>{day.devotional ? "✓" : "—"}</span>
+                  <span>{day.devotional ? "âœ“" : "â€”"}</span>
                 </div>
               ))}
             </div>
@@ -444,7 +444,7 @@ function TeenAccountability() {
                       PM
                     </div>
                     <span className="text-xs font-medium text-white/70">{ci.from}</span>
-                    <span className="text-white/20">·</span>
+                    <span className="text-white/20">Â·</span>
                     <span className="text-xs text-white/40">{ci.date}</span>
                   </div>
                   <p className="text-sm text-white/70 leading-relaxed">{ci.message}</p>
@@ -463,7 +463,7 @@ function TeenAccountability() {
             Add an Accountability Partner
           </h3>
           <p className="text-sm text-white/50 mb-5 max-w-sm mx-auto">
-            Invite a trusted adult — a parent, youth pastor, or mentor — to receive weekly summaries of your digital activity and check in with you.
+            Invite a trusted adult â€” a parent, youth pastor, or mentor â€” to receive weekly summaries of your digital activity and check in with you.
           </p>
           <div className="flex gap-2 max-w-sm mx-auto">
             <input
@@ -486,7 +486,7 @@ function TeenAccountability() {
   );
 }
 
-/* ─── Teen Profile Component ─── */
+/* â”€â”€â”€ Teen Profile Component â”€â”€â”€ */
 function TeenProfile() {
   return (
     <div className="space-y-5 animate-fade-up">
@@ -497,7 +497,7 @@ function TeenProfile() {
         <h3 className="text-xl font-semibold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
           Teen User
         </h3>
-        <p className="text-sm text-white/50">Age 15 · Premium Family Plan</p>
+        <p className="text-sm text-white/50">Age 15 Â· Premium Family Plan</p>
         <div className="flex items-center justify-center gap-4 mt-4">
           <div className="text-center">
             <div className="text-lg font-bold text-[oklch(0.72_0.12_75)]">12</div>
@@ -527,7 +527,7 @@ function TeenProfile() {
           ].map((item) => (
             <button
               key={item.label}
-              onClick={() => toast.info(`${item.label} — feature coming soon`)}
+              onClick={() => toast.info(`${item.label} â€” feature coming soon`)}
               className="w-full flex items-center gap-3 p-4 rounded-xl bg-[oklch(0.16_0.03_255)] border border-white/6 hover:border-white/12 transition-all text-left"
             >
               <div className="flex-1">
@@ -550,3 +550,4 @@ function TeenProfile() {
     </div>
   );
 }
+

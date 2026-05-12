@@ -1,4 +1,4 @@
-/* FaithShield247 ProtectedRoute — redirects to login if not authenticated */
+﻿/* FaithShield247 ProtectedRoute â€” redirects to login if not authenticated */
 import { Redirect } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -15,7 +15,7 @@ export default function ProtectedRoute({ component: Component }: ProtectedRouteP
         <div className="text-center">
           <div className="w-12 h-12 mx-auto mb-4 rounded-xl overflow-hidden shield-pulse">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp"
+              src="/logo.png"
               alt="FaithShield247"
               className="w-full h-full object-cover"
             />
@@ -37,3 +37,4 @@ export default function ProtectedRoute({ component: Component }: ProtectedRouteP
 
   return <Component />;
 }
+

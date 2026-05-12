@@ -1,5 +1,5 @@
-/* FaithShield247 Onboarding Wizard — Sacred Modernism
- * 5-step wizard: Welcome → Add Children → Configure Filters → Add Devices → Complete
+﻿/* FaithShield247 Onboarding Wizard â€” Sacred Modernism
+ * 5-step wizard: Welcome â†’ Add Children â†’ Configure Filters â†’ Add Devices â†’ Complete
  * Full-screen, warm and welcoming, faith-rooted tone
  */
 import { useState } from "react";
@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth, type ChildProfile } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 const AVATAR_COLORS = [
   "oklch(0.55 0.15 255)",
@@ -35,14 +35,14 @@ const FILTER_LABELS: Record<string, { label: string; desc: string }> = {
 };
 
 const DEVICE_OPTIONS = [
-  { id: "iphone", label: "iPhone / iPad", icon: "📱" },
-  { id: "android", label: "Android Phone / Tablet", icon: "📲" },
-  { id: "laptop-mac", label: "Mac / MacBook", icon: "💻" },
-  { id: "laptop-win", label: "Windows PC / Laptop", icon: "🖥️" },
-  { id: "chromebook", label: "Chromebook", icon: "📓" },
-  { id: "tv", label: "Smart TV", icon: "📺" },
-  { id: "gaming", label: "Gaming Console", icon: "🎮" },
-  { id: "router", label: "Home Router (all devices)", icon: "📡" },
+  { id: "iphone", label: "iPhone / iPad", icon: "ðŸ“±" },
+  { id: "android", label: "Android Phone / Tablet", icon: "ðŸ“²" },
+  { id: "laptop-mac", label: "Mac / MacBook", icon: "ðŸ’»" },
+  { id: "laptop-win", label: "Windows PC / Laptop", icon: "ðŸ–¥ï¸" },
+  { id: "chromebook", label: "Chromebook", icon: "ðŸ““" },
+  { id: "tv", label: "Smart TV", icon: "ðŸ“º" },
+  { id: "gaming", label: "Gaming Console", icon: "ðŸŽ®" },
+  { id: "router", label: "Home Router (all devices)", icon: "ðŸ“¡" },
 ];
 
 interface NewChild {
@@ -99,7 +99,7 @@ export default function Onboarding() {
   const addChildToList = () => {
     if (!newChild.name.trim()) { setChildError("Please enter the child's name."); return; }
     const age = parseInt(newChild.age);
-    if (!newChild.age || isNaN(age) || age < 1 || age > 17) { setChildError("Please enter a valid age (1–17)."); return; }
+    if (!newChild.age || isNaN(age) || age < 1 || age > 17) { setChildError("Please enter a valid age (1â€“17)."); return; }
     setChildren((prev) => [...prev, { ...newChild }]);
     setNewChild({ name: "", age: "", screenTimeLimit: 2, filters: { ...defaultFilters } });
     setAddingChild(false);
@@ -213,9 +213,9 @@ export default function Onboarding() {
               </p>
               <div className="grid grid-cols-3 gap-4 mb-10 max-w-lg mx-auto">
                 {[
-                  { icon: "👶", label: "Add children", desc: "Create a profile for each child" },
-                  { icon: "🛡️", label: "Set filters", desc: "Customise protection per child" },
-                  { icon: "📱", label: "Connect devices", desc: "Protect all your family's devices" },
+                  { icon: "ðŸ‘¶", label: "Add children", desc: "Create a profile for each child" },
+                  { icon: "ðŸ›¡ï¸", label: "Set filters", desc: "Customise protection per child" },
+                  { icon: "ðŸ“±", label: "Connect devices", desc: "Protect all your family's devices" },
                 ].map((item) => (
                   <div key={item.label} className="bg-white rounded-xl p-4 border border-[oklch(0.9_0.01_80)] text-center shadow-sm">
                     <div className="text-2xl mb-2">{item.icon}</div>
@@ -259,7 +259,7 @@ export default function Onboarding() {
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-sm text-[oklch(0.15_0.03_255)]">{child.name}</p>
-                        <p className="text-xs text-[oklch(0.5_0.02_255)]">Age {child.age} · {child.screenTimeLimit}h/day limit</p>
+                        <p className="text-xs text-[oklch(0.5_0.02_255)]">Age {child.age} Â· {child.screenTimeLimit}h/day limit</p>
                       </div>
                       <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">Added</Badge>
                       <button onClick={() => removeChild(idx)} className="text-[oklch(0.6_0.02_255)] hover:text-red-500 transition-colors">
@@ -469,7 +469,7 @@ export default function Onboarding() {
               </div>
               {selectedDevices.length > 0 && (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-700">
-                  <p className="font-medium mb-1">✓ {selectedDevices.length} device type{selectedDevices.length > 1 ? "s" : ""} selected</p>
+                  <p className="font-medium mb-1">âœ“ {selectedDevices.length} device type{selectedDevices.length > 1 ? "s" : ""} selected</p>
                   <p className="text-xs text-emerald-600">After completing setup, we'll email you step-by-step installation instructions for each device.</p>
                 </div>
               )}
@@ -578,3 +578,4 @@ export default function Onboarding() {
     </div>
   );
 }
+

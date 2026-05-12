@@ -1,9 +1,6 @@
-/* FaithShield247 DashboardLayout — Sacred Modernism
- * Deep navy sidebar with gold accents, warm off-white content area
- * Auth-aware: shows real user name, child count, and logout
- */
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import type { LucideIcon } from "lucide-react";
 import {
   LayoutDashboard,
   Users,
@@ -24,25 +21,51 @@ import {
   FileText,
   Presentation,
   Layers,
+  Eye,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDemo } from "@/contexts/DemoContext";
 import { toast } from "sonner";
 import NotificationCenter from "@/components/NotificationCenter";
 
-const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
-  { icon: Activity, label: "Activity Timeline", href: "/activity" },
-  { icon: Users, label: "Profiles", href: "/profiles" },
-  { icon: Shield, label: "Filter Demo", href: "/filter-demo" },
-  { icon: BookOpen, label: "Content Library", href: "/content-library" },
-  { icon: BarChart3, label: "Reports", href: "/reports" },
-  { icon: FileText, label: "Safety Report", href: "/safety-report" },
-  { icon: Layers, label: "Business Canvas", href: "/business-canvas" },
-  { icon: Settings, label: "Settings", href: "/settings" },
+type NavItem = {
+  icon: LucideIcon;
+  label: string;
+  href: string;
+  badge?: string;
+};
+
+type NavSection = {
+  label: string;
+  items: NavItem[];
+};
+
+const navSections: NavSection[] = [
+  {
+    label: "Navigation",
+    items: [
+      { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
+      { icon: Activity, label: "Activity Timeline", href: "/activity" },
+      { icon: Users, label: "Profiles", href: "/profiles" },
+      { icon: BookOpen, label: "Content Library", href: "/content-library" },
+      { icon: BarChart3, label: "Reports", href: "/reports", badge: "3" },
+      { icon: FileText, label: "Safety Report", href: "/safety-report" },
+      { icon: Settings, label: "Settings", href: "/settings" },
+    ],
+  },
+  {
+    label: "Tools & Features",
+    items: [
+      { icon: Shield, label: "Filter Demo", href: "/filter-demo" },
+      { icon: Eye, label: "Child View", href: "/child-view" },
+      { icon: Sparkles, label: "Teen Mode", href: "/teen-mode" },
+      { icon: Church, label: "Admin Portal", href: "/admin" },
+      { icon: Globe, label: "Browser Extension", href: "/extension-demo" },
+      { icon: Layers, label: "Business Canvas", href: "/business-canvas" },
+    ],
+  },
 ];
 
 interface DashboardLayoutProps {
@@ -92,18 +115,19 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
         <div className="flex items-center gap-3 px-6 py-6 border-b border-white/10">
           <div className="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp"
+              src="/logo.png"
               alt="FaithShield247"
               className="w-full h-full object-cover"
             />
           </div>
           <div>
-            <h1 className="text-white font-semibold text-base tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-white font-semibold text-base tracking-tight">
               FaithShield247
             </h1>
             <p className="text-white/40 text-xs">Family Protection</p>
           </div>
           <button
+            aria-label="Close menu"
             className="ml-auto lg:hidden text-white/60 hover:text-white"
             onClick={() => setSidebarOpen(false)}
           >
@@ -129,96 +153,48 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
           </div>
         </div>
 
-        {/* Nav */}
-        <nav className="flex-1 px-3 py-2 space-y-0.5 overflow-y-auto">
-          <p className="text-white/30 text-[10px] font-semibold uppercase tracking-widest px-3 py-2">
-            Navigation
-          </p>
-          {navItems.map((item) => {
-            const isActive = location === item.href;
-            return (
-              <Link key={item.href} href={item.href}>
-                <div
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group",
-                    isActive
-                      ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                      : "text-white/65 hover:text-white hover:bg-white/8"
-                  )}
-                >
-                  <item.icon size={17} className={cn(isActive ? "" : "group-hover:scale-105 transition-transform")} />
-                  <span>{item.label}</span>
-                  {isActive && <ChevronRight size={14} className="ml-auto" />}
-                  {item.label === "Reports" && !isActive && (
-                    <Badge className="ml-auto bg-red-500/80 text-white text-[10px] px-1.5 py-0 h-4 border-0">3</Badge>
-                  )}
-                </div>
-              </Link>
-            );
-          })}
+        {/* Nav sections */}
+        <nav className="flex-1 px-3 py-2 overflow-y-auto space-y-4">
+          {navSections.map((section) => (
+            <div key={section.label}>
+              <p className="text-white/30 text-[10px] font-semibold uppercase tracking-widest px-3 py-2">
+                {section.label}
+              </p>
+              <div className="space-y-0.5">
+                {section.items.map((item) => {
+                  const isActive = location === item.href;
+                  return (
+                    <Link key={item.href} href={item.href}>
+                      <div
+                        className={cn(
+                          "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group",
+                          isActive
+                            ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
+                            : "text-white/65 hover:text-white hover:bg-white/10"
+                        )}
+                      >
+                        <item.icon
+                          size={17}
+                          className={cn(!isActive && "group-hover:scale-105 transition-transform")}
+                        />
+                        <span>{item.label}</span>
+                        {isActive && <ChevronRight size={14} className="ml-auto" />}
+                        {item.badge && !isActive && (
+                          <Badge className="ml-auto bg-red-500/80 text-white text-[10px] px-1.5 py-0 h-4 border-0">
+                            {item.badge}
+                          </Badge>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </nav>
 
         {/* Gold divider */}
         <div className="gold-divider mx-4 my-2" />
-
-        {/* Admin Portal & Extension Demo */}
-        <div className="px-3 pb-0.5">
-          <p className="text-white/30 text-[10px] font-semibold uppercase tracking-widest px-3 py-2">
-            Advanced
-          </p>
-          <Link href="/admin">
-            <div className={cn(
-              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-              location === "/admin"
-                ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                : "text-white/65 hover:text-white hover:bg-white/8"
-            )}>
-              <Church size={17} />
-              <span>Admin Portal</span>
-            </div>
-          </Link>
-          <Link href="/extension-demo">
-            <div className={cn(
-              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all mt-0.5",
-              location === "/extension-demo"
-                ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                : "text-white/65 hover:text-white hover:bg-white/8"
-            )}>
-              <Globe size={17} />
-              <span>Browser Extension</span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Teen Mode link */}
-        <div className="px-3 pb-1">
-          <Link href="/teen-mode">
-            <div className={cn(
-              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-              location === "/teen-mode"
-                ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                : "text-white/65 hover:text-white hover:bg-white/8"
-            )}>
-              <Sparkles size={17} />
-              <span>Teen Mode</span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Child View link */}
-        <div className="px-3 pb-2">
-          <Link href="/child-view">
-            <div className={cn(
-              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-              location === "/child-view"
-                ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                : "text-white/65 hover:text-white hover:bg-white/8"
-            )}>
-              <BookOpen size={17} />
-              <span>Child View</span>
-            </div>
-          </Link>
-        </div>
 
         {/* Demo Mode toggle */}
         <div className="px-3 pb-2">
@@ -228,18 +204,20 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
               "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all w-full",
               isDemoMode
                 ? "bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)]"
-                : "text-white/65 hover:text-white hover:bg-white/8"
+                : "text-white/65 hover:text-white hover:bg-white/10"
             )}
           >
             <Presentation size={17} />
             <span>Demo Mode</span>
             {isDemoMode && (
-              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-[oklch(0.15_0.03_255/0.2)] px-1.5 py-0.5 rounded">On</span>
+              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-[oklch(0.15_0.03_255/0.2)] px-1.5 py-0.5 rounded">
+                On
+              </span>
             )}
           </button>
         </div>
 
-        {/* Bottom user section */}
+        {/* User section */}
         <div className="border-t border-white/10 px-4 py-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-[oklch(0.72_0.12_75)] flex items-center justify-center text-[oklch(0.15_0.03_255)] font-bold text-sm flex-shrink-0">
@@ -256,6 +234,7 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
             <button
               onClick={handleLogout}
               title="Sign out"
+              aria-label="Sign out"
               className="text-white/40 hover:text-white transition-colors"
             >
               <LogOut size={15} />
@@ -269,6 +248,7 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
         {/* Top bar */}
         <header className="bg-white border-b border-[oklch(0.9_0.01_80)] px-6 py-4 flex items-center gap-4 flex-shrink-0">
           <button
+            aria-label="Open navigation menu"
             className="lg:hidden text-gray-500 hover:text-gray-700"
             onClick={() => setSidebarOpen(true)}
           >
@@ -278,7 +258,7 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
           <div className="flex-1">
             {title && (
               <div>
-                <h2 className="text-lg font-semibold text-[oklch(0.15_0.03_255)]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h2 className="text-lg font-semibold text-[oklch(0.15_0.03_255)]">
                   {title}
                 </h2>
                 {subtitle && <p className="text-sm text-[oklch(0.5_0.02_255)]">{subtitle}</p>}
@@ -286,18 +266,8 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
             )}
           </div>
 
-          <div className="flex items-center gap-3">
-            <div data-tour="notifications">
-              <NotificationCenter />
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="text-xs border-[oklch(0.9_0.01_80)] gap-1.5"
-              onClick={handleLogout}
-            >
-              <LogOut size={13} /> Sign Out
-            </Button>
+          <div data-tour="notifications">
+            <NotificationCenter />
           </div>
         </header>
 
@@ -309,3 +279,4 @@ export default function DashboardLayout({ children, title, subtitle }: Dashboard
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-/* FaithShield247 Reset Password — Sacred Modernism
+﻿/* FaithShield247 Reset Password â€” Sacred Modernism
  * Token/code entry + new password form with strength indicator
  */
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { Lock, ArrowLeft, Shield, Loader2, CheckCircle, Eye, EyeOff, ArrowRight,
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 export default function ResetPassword() {
   const [, navigate] = useLocation();
@@ -223,3 +223,4 @@ export default function ResetPassword() {
     </div>
   );
 }
+

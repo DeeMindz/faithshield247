@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M50 8 L88 22 L88 52 Q88 76 50 92 Q12 76 12 52 L12 22 Z" fill="oklch(0.18 0.06 255)"/>
+  <path d="M50 18 L80 30 L80 52 Q80 70 50 84 Q20 70 20 52 L20 30 Z" fill="oklch(0.72 0.12 75)"/>
+  <path d="M50 28 L72 38 L72 52 Q72 64 50 76 Q28 64 28 52 L28 38 Z" fill="oklch(0.18 0.06 255)"/>
+</svg>

@@ -1,15 +1,11 @@
-/* FaithShield247 Login Page — Sacred Modernism
- * Deep navy left panel with hero image, warm off-white right panel with form
- */
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Eye, EyeOff, Shield, ArrowRight, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-hero-HfYVr2ei75cpvuct2YthCb.webp";
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 
 export default function Login() {
   const [, navigate] = useLocation();
@@ -46,25 +42,26 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-      {/* Left — hero panel */}
+    <div className="min-h-screen flex">
+      {/* Left â€” hero panel */}
       <div className="hidden lg:flex lg:w-1/2 relative flex-col">
-        <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Family" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.18_0.06_255/0.92)] to-[oklch(0.18_0.06_255/0.7)]" />
+        <div className="absolute inset-0 bg-[oklch(0.18_0.06_255)]">
+          <div className="absolute inset-0" style={{background:"radial-gradient(ellipse 70% 80% at 25% 60%, oklch(0.26 0.14 268 / 0.55), transparent)"}} />
+          <div className="absolute inset-0" style={{background:"radial-gradient(ellipse 50% 40% at 80% 90%, oklch(0.55 0.12 75 / 0.12), transparent)"}} />
+          <div className="absolute inset-0 opacity-[0.025]" style={{backgroundImage:"radial-gradient(circle, white 1px, transparent 1px)",backgroundSize:"24px 24px"}} />
         </div>
         <div className="relative flex flex-col h-full p-12">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img src={SHIELD_IMG} alt="FaithShield247" className="w-10 h-10 rounded-xl object-cover" />
-            <span className="text-white text-xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <span className="text-white text-xl font-semibold font-display">
               FaithShield247
             </span>
           </div>
           {/* Quote */}
           <div className="flex-1 flex flex-col justify-center">
             <div className="gold-divider mb-8 max-w-xs" />
-            <blockquote className="text-white/90 text-2xl leading-relaxed font-medium italic mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <blockquote className="text-white/90 text-2xl leading-relaxed font-medium italic mb-4 font-display">
               "Guard your heart above all else, for it determines the course of your life."
             </blockquote>
             <p className="text-[oklch(0.72_0.12_75)] text-sm font-medium">Proverbs 4:23</p>
@@ -78,7 +75,7 @@ export default function Login() {
               { value: "< 50ms", label: "Filter Speed" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <div className="text-xl font-bold text-[oklch(0.72_0.12_75)]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <div className="text-xl font-bold text-[oklch(0.72_0.12_75)] font-display">
                   {s.value}
                 </div>
                 <div className="text-white/50 text-xs mt-0.5">{s.label}</div>
@@ -88,18 +85,18 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right — form panel */}
+      {/* Right â€” form panel */}
       <div className="flex-1 flex flex-col justify-center px-6 py-12 bg-[oklch(0.99_0.005_80)] lg:px-16">
         {/* Mobile logo */}
         <div className="lg:hidden flex items-center gap-3 mb-8">
           <img src={SHIELD_IMG} alt="FaithShield247" className="w-9 h-9 rounded-xl object-cover" />
-          <span className="text-[oklch(0.15_0.03_255)] text-lg font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="text-[oklch(0.15_0.03_255)] text-lg font-semibold font-display">
             FaithShield247
           </span>
         </div>
 
         <div className="max-w-sm w-full mx-auto">
-          <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-3xl font-bold text-[oklch(0.15_0.03_255)] mb-2">
             Welcome back
           </h1>
           <p className="text-[oklch(0.5_0.02_255)] text-sm mb-8">
@@ -143,21 +140,22 @@ export default function Login() {
                 <label className="block text-sm font-medium text-[oklch(0.3_0.02_255)]">
                   Password
                 </label>
-                <Link href="/forgot-password"><span className="text-xs text-[oklch(0.18_0.06_255)] hover:underline cursor-pointer">
+                <Link href="/forgot-password" className="text-xs text-[oklch(0.18_0.06_255)] hover:underline">
                   Forgot password?
-                </span></Link>
+                </Link>
               </div>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                   autoComplete="current-password"
                   className="w-full px-4 py-3 rounded-xl border border-[oklch(0.88_0.01_80)] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[oklch(0.72_0.12_75/0.4)] focus:border-[oklch(0.72_0.12_75)] transition-all placeholder:text-[oklch(0.7_0.01_80)] pr-11"
                 />
                 <button
                   type="button"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)] transition-colors"
                 >
@@ -191,20 +189,16 @@ export default function Login() {
           <div className="mt-6 text-center">
             <p className="text-sm text-[oklch(0.5_0.02_255)]">
               Don't have an account?{" "}
-              <Link href="/signup">
-                <span className="text-[oklch(0.18_0.06_255)] font-semibold hover:underline cursor-pointer">
-                  Create one free
-                </span>
+              <Link href="/signup" className="text-[oklch(0.18_0.06_255)] font-semibold hover:underline">
+                Create one free
               </Link>
             </p>
           </div>
 
           <div className="mt-8 pt-6 border-t border-[oklch(0.9_0.01_80)]">
-            <Link href="/">
-              <button className="flex items-center gap-2 text-xs text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)] transition-colors mx-auto">
-                <Shield size={13} />
-                Back to FaithShield247 home
-              </button>
+            <Link href="/" className="flex items-center gap-2 text-xs text-[oklch(0.6_0.02_255)] hover:text-[oklch(0.3_0.02_255)] transition-colors mx-auto w-fit">
+              <Shield size={13} />
+              Back to FaithShield247 home
             </Link>
           </div>
         </div>
@@ -212,3 +206,4 @@ export default function Login() {
     </div>
   );
 }
+

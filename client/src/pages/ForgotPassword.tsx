@@ -1,12 +1,12 @@
-/* FaithShield247 Forgot Password — Sacred Modernism
- * Email entry → simulated email sent confirmation with animated transition
+﻿/* FaithShield247 Forgot Password â€” Sacred Modernism
+ * Email entry â†’ simulated email sent confirmation with animated transition
  */
 import { useState } from "react";
 import { Link } from "wouter";
 import { Mail, ArrowLeft, Shield, Loader2, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const SHIELD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-logo-A4Lo5NmYbnLa97AHWfiJdy.webp";
+const SHIELD_IMG = "/logo.png";
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/119887285/aBfvADsrbdM32MGZADKNdR/faithshield247-hero-HfYVr2ei75cpvuct2YthCb.webp";
 
 export default function ForgotPassword() {
@@ -201,3 +201,4 @@ export default function ForgotPassword() {
     </div>
   );
 }
+
