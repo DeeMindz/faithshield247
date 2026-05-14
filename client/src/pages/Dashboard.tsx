@@ -1,7 +1,7 @@
 /* FaithShield247 Dashboard — Sacred Modernism
  * Family overview, protection stats, recent alerts, daily verse
  */
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import DashboardLayout from "@/components/DashboardLayout";
 import { Shield, Clock, AlertTriangle, BookOpen, TrendingDown, CheckCircle, ChevronRight, Zap, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -52,19 +52,22 @@ export default function Dashboard() {
   const { user } = useAuth();
   const [selectedChild, setSelectedChild] = useState("All");
 
-  // Use real children from auth context if available, otherwise fall back to demo data
-  const displayChildren = user?.children?.length
-    ? user.children.map((c) => ({
-        name: c.name,
-        age: c.age,
-        avatar: c.avatar,
-        screenTime: `${Math.floor(Math.random() * c.screenTimeLimit * 0.8 * 10) / 10}h ${Math.floor(Math.random() * 59)}m`,
-        limit: `${c.screenTimeLimit}h`,
-        status: Math.random() > 0.4 ? "online" : "offline",
-        blockedToday: Math.floor(Math.random() * 8),
-        color: c.color,
-      }))
-    : children;
+  const displayChildren = useMemo(() => {
+    if (!user?.children?.length) return children;
+    const screenTimes = ["2h 34m", "1h 12m", "0h 45m", "3h 21m"];
+    const statuses = ["online", "offline", "online", "online"] as const;
+    const blocked = [4, 1, 0, 2];
+    return user.children.map((c, i) => ({
+      name: c.name,
+      age: c.age,
+      avatar: c.avatar,
+      screenTime: screenTimes[i % screenTimes.length],
+      limit: `${c.screenTimeLimit}h`,
+      status: statuses[i % statuses.length],
+      blockedToday: blocked[i % blocked.length],
+      color: c.color,
+    }));
+  }, [user?.children]);
 
   return (
     <DashboardLayout title={`Welcome back, ${user?.firstName || 'Parent'}`} subtitle={new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}>

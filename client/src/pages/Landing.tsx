@@ -182,6 +182,14 @@ function HeroVisual() {
 }
 
 // â"€â"€â"€ Data â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
+const stats = [
+  { value: "75%", label: "of teens encounter sexual content online" },
+  { value: "82%", label: "encounter violent content online" },
+  { value: "90%+", label: "of parents are deeply concerned" },
+  { value: "$4B+", label: "child safety market by 2035" },
+];
+
+
 const features = [
   { icon: Shield, title: "AI Content Filtering", desc: "Real-time detection and blocking of harmful content — pornography, violence, extremism — before it reaches your child's screen." },
   { icon: Users, title: "Parental Dashboard", desc: "A powerful, intuitive control centre. Monitor activity, set screen-time limits, receive alerts, and manage every device from one place." },
@@ -189,13 +197,6 @@ const features = [
   { icon: BarChart3, title: "Activity Reports", desc: "Weekly and daily reports showing what your children are doing online, with faith-based conversation starters for parents." },
   { icon: Lock, title: "Anti-Grooming Detection", desc: "AI-powered keyword and pattern detection that alerts parents to predatory language in messages and chats." },
   { icon: Star, title: "Church & School Integration", desc: "Group subscriptions and digital discipleship tools for Christian schools, churches, and youth ministries." },
-];
-
-const stats = [
-  { value: "75%", label: "of teens encounter sexual content online" },
-  { value: "82%", label: "encounter violent content online" },
-  { value: "90%+", label: "of parents are deeply concerned" },
-  { value: "$4B+", label: "child safety market by 2035" },
 ];
 
 const plans = [
@@ -219,19 +220,20 @@ const plans = [
   },
 ];
 
-const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "For Churches", href: "#pricing" },
-];
-
 const howItWorksSteps = [
   { step: "01", icon: Settings, title: "Install & Configure", desc: "Set up FaithShield247 on your family's devices in minutes. Create individual profiles for each child with age-appropriate settings." },
   { step: "02", icon: Zap, title: "AI Monitors in Real-Time", desc: "Our AI engine continuously scans web content, images, and messages — blocking harmful material before it reaches your child." },
   { step: "03", icon: Bell, title: "Parents Stay Informed", desc: "Receive instant alerts for concerning activity. Review weekly reports and use built-in conversation guides to discuss digital life with your children." },
   { step: "04", icon: BookOpen, title: "Children Grow & Learn", desc: "Children access a curated world of Christian content, educational games, Bible stories, and safe community — nourishment, not just restriction." },
 ];
+
+const navLinks = [
+  { label: "For Families", href: "/for-families" },
+  { label: "For Schools", href: "/for-schools" },
+  { label: "For Churches", href: "/for-churches" },
+  { label: "About", href: "/about" },
+];
+
 
 // â"€â"€â"€ Page â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 export default function Landing() {
@@ -286,18 +288,18 @@ export default function Landing() {
                   Sign In
                 </Button>
               </Link>
-              <Link href="/signup">
+              <Link href="/waitlist">
                 <Button size="sm" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 text-sm">
-                  Start Free Trial
+                  Join the Waitlist
                 </Button>
               </Link>
             </div>
 
             {/* Mobile right — CTA + hamburger */}
             <div className="flex md:hidden ml-auto items-center gap-2">
-              <Link href="/signup">
+              <Link href="/waitlist">
                 <Button size="sm" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 text-xs px-3">
-                  Get Started
+                  Join Waitlist
                 </Button>
               </Link>
               <button
@@ -336,6 +338,11 @@ export default function Landing() {
                 >
                   <Presentation size={13} /> View Demo
                 </Button>
+                <Link href="/waitlist" onClick={() => setMobileMenuOpen(false)}>
+                  <Button size="sm" className="w-full bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 justify-center">
+                    Join the Waitlist
+                  </Button>
+                </Link>
               </div>
             </div>
           )}
@@ -363,35 +370,30 @@ export default function Landing() {
           {/* Left — text */}
           <div className="max-w-full">
             <Badge className="mb-5 bg-[oklch(0.72_0.12_75/0.2)] text-[oklch(0.85_0.09_75)] border-[oklch(0.72_0.12_75/0.4)] text-xs font-medium px-3 py-1">
-              Faith-Based Digital Safeguarding
+              Child-Focused Digital Safeguarding
             </Badge>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-5">
-              Protecting Innocence<br />
-              <em className="text-[oklch(0.85_0.09_75)]">in a Digital Age</em>
+              Protecting children online.<br />
+              <em className="text-[oklch(0.85_0.09_75)]">Building healthier digital futures.</em>
             </h1>
             <p className="text-white/75 text-base lg:text-lg leading-relaxed mb-7 max-w-xl">
-              FaithShield247 is a Christian digital safeguarding platform that protects children from harmful online content while nurturing moral clarity, spiritual growth, and healthy digital habits.
+              FaithShield247 is a child-focused digital safeguarding and values-based technology platform being developed to help families, schools, and trusted communities create safer online environments for children and young people.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/signup">
+              <Link href="/waitlist">
                 <Button size="lg" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 gap-2 text-sm sm:text-base">
-                  Start Free Trial <ArrowRight size={16} />
+                  Join the Waitlist <ArrowRight size={16} />
                 </Button>
               </Link>
-              <Link href="/login">
+              <Link href="/waitlist">
                 <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent text-sm sm:text-base">
-                  Sign In
+                  Request a Demo
                 </Button>
               </Link>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
-              {["AI-Powered Filtering", "Faith Formation Tools", "Parental Dashboard"].map((tag) => (
-                <div key={tag} className="flex items-center gap-1.5 text-white/70 text-xs sm:text-sm">
-                  <CheckCircle size={13} className="text-[oklch(0.72_0.12_75)] flex-shrink-0" />
-                  {tag}
-                </div>
-              ))}
-            </div>
+            <p className="mt-5 text-white/45 text-xs sm:text-sm leading-relaxed max-w-md">
+              Early-stage. Purpose-driven. Built to respond to the growing digital risks facing children and young people.
+            </p>
           </div>
 
           {/* Right — interactive visual */}
@@ -413,25 +415,154 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* â"€â"€ Mission statement â"€â"€ */}
+      {/* -- Problem -- */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="gold-divider mb-8" />
-          <blockquote className="text-2xl lg:text-3xl text-[oklch(0.15_0.03_255)] leading-relaxed font-medium italic mb-6 font-display">
-            "The internet is no longer neutral. It catechises. It disciples. It shapes desire. If decent people do not build alternatives, the algorithm will keep raising children in its own image."
-          </blockquote>
-          <p className="text-[oklch(0.5_0.02_255)] text-sm">The cultural urgency behind FaithShield247</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-[oklch(0.15_0.03_255)] leading-snug mb-6 font-display">
+            Children are growing up in a digital world that rarely protects them first.
+          </h2>
+          <p className="text-[oklch(0.45_0.02_255)] text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
+            Children and young people now spend more time in digital environments that are shaping their behaviour, attention, values, confidence, and wellbeing. Yet many of those environments expose them too early to harmful content, unhealthy pressures, manipulative influences, and online risks that trusted adults often feel unequipped to manage.
+          </p>
+          <p className="text-[oklch(0.45_0.02_255)] text-base lg:text-lg leading-relaxed max-w-3xl mx-auto mt-4">
+            The challenge is no longer just screen time. It is exposure, pressure, confusion, digital harm, and the long-term shaping of young lives.
+          </p>
           <div className="gold-divider mt-8" />
         </div>
       </section>
 
-      {/* â"€â"€ Features â"€â"€ */}
+      {/* -- Solution -- */}
+      <section className="py-20 bg-[oklch(0.97_0.01_80)]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <Badge className="mb-5 bg-[oklch(0.18_0.06_255/0.08)] text-[oklch(0.18_0.06_255)] border-[oklch(0.18_0.06_255/0.2)] text-xs font-medium px-3 py-1">
+            The Solution
+          </Badge>
+          <h2 className="text-3xl lg:text-4xl font-bold text-[oklch(0.15_0.03_255)] mb-6 leading-snug">
+            FaithShield247 is being developed as a safer, more intentional digital safeguarding platform.
+          </h2>
+          <p className="text-[oklch(0.45_0.02_255)] text-base lg:text-lg leading-relaxed mb-4">
+            FaithShield247 is designed to support safer digital engagement by helping families, schools, and trusted communities create more structured, informed, and responsive digital environments for children.
+          </p>
+          <p className="text-[oklch(0.45_0.02_255)] text-base lg:text-lg leading-relaxed">
+            The vision is not merely to restrict harmful content, but to strengthen digital safety, improve guidance, and support healthier online habits for children and young people.
+          </p>
+        </div>
+      </section>
+
+      {/* -- Who It Is For -- */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[oklch(0.15_0.03_255)] mb-4">Who FaithShield247 is for</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Users, title: "Families", href: "/for-families", desc: "Parents and caregivers seeking better support, structure, and digital safety tools for children." },
+              { icon: BookOpen, title: "Schools", href: "/for-schools", desc: "Schools looking to strengthen digital safeguarding, child wellbeing, and safer online participation." },
+              { icon: Shield, title: "Churches & Communities", href: "/for-churches", desc: "Trusted institutions seeking more intentional child protection and values-based digital support." },
+            ].map((card) => (
+              <Link key={card.title} href={card.href}>
+                <div className="group rounded-2xl border border-[oklch(0.9_0.01_80)] bg-[oklch(0.97_0.01_80)] p-8 hover:shadow-lg hover:border-[oklch(0.18_0.06_255/0.25)] transition-all duration-200 cursor-pointer h-full">
+                  <div className="w-12 h-12 rounded-xl bg-[oklch(0.18_0.06_255)] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-200">
+                    <card.icon size={22} className="text-[oklch(0.72_0.12_75)]" />
+                  </div>
+                  <h3 className="font-bold text-[oklch(0.15_0.03_255)] text-lg mb-3">{card.title}</h3>
+                  <p className="text-[oklch(0.5_0.02_255)] text-sm leading-relaxed">{card.desc}</p>
+                  <p className="mt-4 text-[oklch(0.18_0.06_255)] text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* -- Why It Matters -- */}
+      <section className="py-20 bg-[oklch(0.22_0.09_265)]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <Badge className="mb-5 bg-white/10 text-white/80 border-white/20 text-xs font-medium px-3 py-1">
+            Why It Matters
+          </Badge>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-snug">
+            Digital spaces are not neutral.
+          </h2>
+          <p className="text-white/70 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
+            They influence behaviour, expectations, identity, and emotional wellbeing. FaithShield247 exists because child safety online should not be left to chance.
+          </p>
+        </div>
+      </section>
+
+      {/* -- About / Idea-Hub -- */}
+      <section className="py-20 bg-[oklch(0.97_0.01_80)]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-[oklch(0.18_0.06_255/0.08)] text-[oklch(0.18_0.06_255)] border-[oklch(0.18_0.06_255/0.2)] text-xs font-medium px-3 py-1">
+                About
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-[oklch(0.15_0.03_255)] mb-5 leading-snug">
+                An Idea-Hub-led initiative
+              </h2>
+              <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed mb-4">
+                FaithShield247 is an Idea-Hub-led concept focused on developing a child-focused digital safeguarding and values-based technology solution. It is currently in its early development phase and is being shaped carefully through strategic collaboration, structured planning, and ongoing refinement.
+              </p>
+              <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed">
+                Idea-Hub is a platform committed to developing purposeful ideas, creative solutions, and socially relevant innovation — bringing together thought, creativity, strategy, and collaboration to respond to real human and societal needs.
+              </p>
+              <Link href="/about">
+                <Button variant="outline" className="mt-6 border-[oklch(0.18_0.06_255/0.3)] text-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.18_0.06_255/0.06)]">
+                  Read More About Us
+                </Button>
+              </Link>
+            </div>
+            <div className="flex flex-col gap-4">
+              {[
+                { label: "Mission", text: "To help create safer digital environments for children and young people through a platform approach centred on protection, guidance, and responsible support." },
+                { label: "Vision", text: "A future in which children can engage with the digital world with greater safety, stronger guidance, and more intentional support from the adults and institutions around them." },
+              ].map((item) => (
+                <div key={item.label} className="bg-white rounded-2xl border border-[oklch(0.9_0.01_80)] p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-1 h-5 rounded-full bg-[oklch(0.72_0.12_75)]" />
+                    <p className="font-bold text-[oklch(0.15_0.03_255)] text-sm uppercase tracking-widest">{item.label}</p>
+                  </div>
+                  <p className="text-[oklch(0.45_0.02_255)] text-sm leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- Waitlist CTA -- */}
+      <section className="bg-[oklch(0.18_0.06_255)] py-20">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <img src={SHIELD_IMG} alt="FaithShield247" className="w-16 h-20 mx-auto mb-6 object-contain opacity-90" />
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Join us at the early stage</h2>
+          <p className="text-white/65 text-base lg:text-lg mb-8 leading-relaxed">
+            If you would like to follow the development of FaithShield247, explore partnership opportunities, or request future updates, we would be pleased to hear from you.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/waitlist">
+              <Button size="lg" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 gap-2 px-8">
+                Join the Waitlist <ArrowRight size={18} />
+              </Button>
+            </Link>
+            <Link href="/waitlist">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent px-8">
+                Contact Us
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* -- Features -- */}
       <section id="features" className="py-20 bg-[oklch(0.97_0.01_80)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-bold text-[oklch(0.15_0.03_255)] mb-4">Not Just a Filter — A Formation Tool</h2>
             <p className="text-[oklch(0.5_0.02_255)] text-lg max-w-2xl mx-auto">
-              FaithShield247 combines protection with purpose. Blocking poison is only half the battle. We also provide nourishment.
+              FaithShield247 combines protection with purpose. Blocking harmful content is only half the battle — we also provide nourishment.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -448,7 +579,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* â"€â"€ How it works â"€â"€ */}
+      {/* -- How It Works -- */}
       <section id="how-it-works" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -459,13 +590,8 @@ export default function Landing() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {howItWorksSteps.map((item) => (
-              <div
-                key={item.step}
-                className="relative rounded-2xl bg-[oklch(0.97_0.01_80)] border border-[oklch(0.9_0.01_80)] p-7 overflow-hidden group hover:shadow-lg hover:border-[oklch(0.18_0.06_255/0.2)] transition-all duration-200"
-              >
-                <div className="absolute -top-3 -right-1 text-[7.5rem] font-bold text-[oklch(0.91_0.005_80)] font-display leading-none select-none pointer-events-none">
-                  {item.step}
-                </div>
+              <div key={item.step} className="relative rounded-2xl bg-[oklch(0.97_0.01_80)] border border-[oklch(0.9_0.01_80)] p-7 overflow-hidden group hover:shadow-lg hover:border-[oklch(0.18_0.06_255/0.2)] transition-all duration-200">
+                <div className="absolute -top-3 -right-1 text-[7.5rem] font-bold text-[oklch(0.91_0.005_80)] font-display leading-none select-none pointer-events-none">{item.step}</div>
                 <div className="relative z-10 w-12 h-12 rounded-xl bg-[oklch(0.18_0.06_255)] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-200">
                   <item.icon size={22} className="text-[oklch(0.72_0.12_75)]" />
                 </div>
@@ -488,7 +614,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* â"€â"€ Pricing â"€â"€ */}
+      {/* -- Pricing -- */}
       <section id="pricing" className="py-20 bg-[oklch(0.97_0.01_80)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -497,10 +623,7 @@ export default function Landing() {
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-2xl p-7 ${plan.highlight ? "bg-[oklch(0.18_0.06_255)] text-white shadow-2xl scale-105" : "bg-white border border-[oklch(0.9_0.01_80)] shadow-sm"}`}
-              >
+              <div key={plan.name} className={`rounded-2xl p-7 ${plan.highlight ? "bg-[oklch(0.18_0.06_255)] text-white shadow-2xl scale-105" : "bg-white border border-[oklch(0.9_0.01_80)] shadow-sm"}`}>
                 {plan.highlight && (
                   <Badge className="mb-3 bg-[oklch(0.72_0.12_75)] text-[oklch(0.15_0.03_255)] border-0 text-xs">Most Popular</Badge>
                 )}
@@ -529,30 +652,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* â"€â"€ CTA â"€â"€ */}
-      <section className="bg-[oklch(0.18_0.06_255)] py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <img src={SHIELD_IMG} alt="FaithShield247" className="w-20 h-24 mx-auto mb-6 object-contain shield-pulse" />
-          <h2 className="text-4xl font-bold text-white mb-4">Guard Their Hearts Online</h2>
-          <p className="text-white/65 text-lg mb-8 leading-relaxed">
-            Children are being discipled daily by screens. If the family, the church, and good technology do not stand in the gap, something else will.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/signup">
-              <Button size="lg" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 gap-2 text-base px-8">
-                Start Free Trial <ArrowRight size={18} />
-              </Button>
-            </Link>
-            <Link href="/login">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent text-base px-8">
-                Sign In
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* â"€â"€ Footer â"€â"€ */}
+      {/* -- Footer -- */}
       <footer className="bg-[oklch(0.13_0.05_255)] py-14">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
@@ -561,36 +661,47 @@ export default function Landing() {
                 <img src={SHIELD_IMG} alt="FaithShield247" className="w-8 h-9 object-contain" />
                 <span className="text-white font-semibold font-display">FaithShield247</span>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed">Protecting innocence in a digital age. A faith-based digital safeguarding ecosystem.</p>
+              <p className="text-white/40 text-sm leading-relaxed">Protecting children online. Building healthier digital futures.</p>
             </div>
             <div>
-              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Product</p>
+              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Navigate</p>
               <ul className="space-y-2.5">
-                {[{ label: "Features", href: "#features" }, { label: "How It Works", href: "#how-it-works" }, { label: "Pricing", href: "#pricing" }, { label: "For Churches", href: "#pricing" }].map((link) => (
-                  <li key={link.label}><a href={link.href} className="text-white/40 hover:text-white/80 text-sm transition-colors">{link.label}</a></li>
+                {[
+                  { label: "Home", href: "/" },
+                  { label: "About FaithShield247", href: "/about" },
+                  { label: "Join the Waitlist", href: "/waitlist" },
+                ].map((link) => (
+                  <li key={link.label}><Link href={link.href} className="text-white/40 hover:text-white/80 text-sm transition-colors">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Platform</p>
+              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Who We Serve</p>
               <ul className="space-y-2.5">
-                {["Parental Dashboard", "Child View", "Teen Mode", "Admin Portal"].map((label) => (
-                  <li key={label}><Link href="/login" className="text-white/40 hover:text-white/80 text-sm transition-colors">{label}</Link></li>
+                {[
+                  { label: "For Families", href: "/for-families" },
+                  { label: "For Schools", href: "/for-schools" },
+                  { label: "For Churches", href: "/for-churches" },
+                ].map((link) => (
+                  <li key={link.label}><Link href={link.href} className="text-white/40 hover:text-white/80 text-sm transition-colors">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
             <div>
               <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Legal</p>
               <ul className="space-y-2.5">
-                {["Privacy Policy", "Terms of Service", "Cookie Policy", "Contact Us"].map((label) => (
-                  <li key={label}><a href="#" className="text-white/40 hover:text-white/80 text-sm transition-colors">{label}</a></li>
+                {[
+                  { label: "Privacy Policy", href: "/privacy" },
+                  { label: "Terms of Use", href: "/terms" },
+                ].map((link) => (
+                  <li key={link.label}><Link href={link.href} className="text-white/40 hover:text-white/80 text-sm transition-colors">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
           </div>
           <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-white/25 text-xs">Â© 2026 FaithShield247. All rights reserved.</p>
-            <p className="text-white/25 text-xs">Built for families who believe digital formation matters.</p>
+            <p className="text-white/25 text-xs">&copy; 2026 FaithShield247. All rights reserved.</p>
+            <p className="text-white/25 text-xs">FaithShield247 — Protecting children online. Building healthier digital futures.</p>
           </div>
         </div>
       </footer>
