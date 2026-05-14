@@ -359,35 +359,35 @@ export default function Landing() {
         <ParticleCanvas />
 
         {/* Content grid */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 py-16 sm:py-20 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — text */}
-          <div>
-            <Badge className="mb-6 bg-[oklch(0.72_0.12_75/0.2)] text-[oklch(0.85_0.09_75)] border-[oklch(0.72_0.12_75/0.4)] text-xs font-medium px-3 py-1">
+          <div className="max-w-full">
+            <Badge className="mb-5 bg-[oklch(0.72_0.12_75/0.2)] text-[oklch(0.85_0.09_75)] border-[oklch(0.72_0.12_75/0.4)] text-xs font-medium px-3 py-1">
               Faith-Based Digital Safeguarding
             </Badge>
-            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              <span className="whitespace-nowrap">Protecting Innocence</span><br />
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-5">
+              Protecting Innocence<br />
               <em className="text-[oklch(0.85_0.09_75)]">in a Digital Age</em>
             </h1>
-            <p className="text-white/75 text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-white/75 text-base lg:text-lg leading-relaxed mb-7 max-w-xl">
               FaithShield247 is a Christian digital safeguarding platform that protects children from harmful online content while nurturing moral clarity, spiritual growth, and healthy digital habits.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/signup">
-                <Button size="lg" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 gap-2">
+                <Button size="lg" className="bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.65_0.12_75)] text-[oklch(0.15_0.03_255)] font-semibold border-0 gap-2 text-sm sm:text-base">
                   Start Free Trial <ArrowRight size={16} />
                 </Button>
               </Link>
               <Link href="/login">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent text-sm sm:text-base">
                   Sign In
                 </Button>
               </Link>
             </div>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
               {["AI-Powered Filtering", "Faith Formation Tools", "Parental Dashboard"].map((tag) => (
-                <div key={tag} className="flex items-center gap-1.5 text-white/70 text-sm">
-                  <CheckCircle size={14} className="text-[oklch(0.72_0.12_75)]" />
+                <div key={tag} className="flex items-center gap-1.5 text-white/70 text-xs sm:text-sm">
+                  <CheckCircle size={13} className="text-[oklch(0.72_0.12_75)] flex-shrink-0" />
                   {tag}
                 </div>
               ))}
