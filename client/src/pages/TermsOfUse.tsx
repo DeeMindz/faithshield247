@@ -33,7 +33,7 @@ function PageFooter() {
 const terms = [
   "The content on this website is provided for general information about FaithShield247 and may be updated, changed, or removed as the project develops.",
   "Nothing on this website constitutes a guarantee of future product availability, service delivery, or commercial offering.",
-  "All website content, branding, and materials remain subject to the intellectual property rights of Idea-Hub and/or FaithShield247 unless otherwise stated.",
+  "All website content, branding, and materials remain subject to the intellectual property rights of Idea-Hub UK Ltd and/or FaithShield247 unless otherwise stated.",
   "Unauthorized copying, misuse, or misrepresentation of website content is not permitted.",
 ];
 

@@ -222,7 +222,7 @@ export default function Waitlist() {
               <div className="relative">
                 <p className="text-[oklch(0.72_0.12_75)] text-xs font-semibold uppercase tracking-widest mb-4">Project Lead</p>
                 <p className="text-white font-bold font-display text-base mb-1">Tunde Adeparusi</p>
-                <p className="text-white/60 text-xs leading-relaxed mb-5">Founder and Project Lead | Idea-Hub</p>
+                <p className="text-white/60 text-xs leading-relaxed mb-5">Founder and Project Lead | Idea-Hub UK Ltd</p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
                     <Phone size={13} className="text-[oklch(0.72_0.12_75)] mt-0.5 flex-shrink-0" />
