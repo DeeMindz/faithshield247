@@ -268,9 +268,9 @@ export default function Landing() {
             {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-6 ml-8">
               {navLinks.map((item) => (
-                <a key={item.label} href={item.href} className="text-white/60 hover:text-white text-sm transition-colors">
+                <Link key={item.label} href={item.href} className="text-white/60 hover:text-white text-sm transition-colors">
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -316,14 +316,14 @@ export default function Landing() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-white/10 px-4 py-4 space-y-1">
               {navLinks.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2.5 text-white/70 hover:text-white hover:bg-white/8 rounded-lg text-sm transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
                 <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
