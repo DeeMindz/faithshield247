@@ -56,7 +56,7 @@ export default function About() {
           <h2 className="text-2xl font-bold text-[oklch(0.18_0.06_255)] font-display mb-5">About FaithShield247</h2>
           <div className="bg-white rounded-2xl border border-[oklch(0.9_0.01_80)] p-8 mb-6">
             <p className="text-[oklch(0.35_0.02_255)] leading-relaxed text-[0.95rem] mb-4">
-              FaithShield247 is a child-focused digital safeguarding and values-based technology concept being developed as a joint initiative of Idea-Hub Ireland and Idea-Hub UK Ltd. It was created in response to a growing concern: children and young people are increasingly exposed to harmful digital content, online pressure, manipulative environments, and digital experiences that are not designed with their wellbeing in mind.
+              FaithShield247 is an Idea-Hub-led concept being developed to help create safer digital environments for children and young people. It was created in response to a growing concern: children and young people are increasingly exposed to harmful digital content, online pressure, manipulative environments, and digital experiences that are not designed with their wellbeing in mind.
             </p>
             <p className="text-[oklch(0.35_0.02_255)] leading-relaxed text-[0.95rem]">
               FaithShield247 seeks to contribute to a better response by exploring how technology, structure, and trusted guidance can work together to support safer digital engagement.
@@ -99,7 +99,7 @@ export default function About() {
           <h2 className="text-2xl font-bold text-[oklch(0.18_0.06_255)] font-display mb-5">About Idea-Hub Ireland &amp; Idea-Hub UK Ltd</h2>
           <div className="bg-white rounded-2xl border border-[oklch(0.9_0.01_80)] p-8">
             <p className="text-[oklch(0.35_0.02_255)] leading-relaxed text-[0.95rem] mb-4">
-              Idea-Hub Ireland and Idea-Hub UK Ltd are platforms committed to developing purposeful ideas, creative solutions, and socially relevant innovation. FaithShield247 is one of the joint initiatives emerging from that broader vision.
+              Idea-Hub Ireland and Idea-Hub UK Ltd are a platform committed to developing purposeful ideas, creative solutions, and socially relevant innovation. FaithShield247 is one of the initiatives emerging from that broader vision.
             </p>
             <p className="text-[oklch(0.35_0.02_255)] leading-relaxed text-[0.95rem]">
               Together, they bring thought, creativity, strategy, and collaboration to shape ideas that respond to real human and societal needs.

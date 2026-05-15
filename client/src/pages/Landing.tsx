@@ -511,10 +511,10 @@ export default function Landing() {
                 A Joint Initiative of Idea-Hub Ireland and Idea-Hub UK Ltd
               </h2>
               <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed mb-4">
-                FaithShield247 is a joint initiative of Idea-Hub Ireland and Idea-Hub UK Ltd, focused on developing a child-focused digital safeguarding and values-based technology solution. It is currently in its early development phase and is being shaped carefully through strategic collaboration, structured planning, and ongoing refinement.
+                FaithShield247 is an Idea-Hub-led concept focused on developing a child-focused digital safeguarding and values-based technology solution. It is currently in its early development phase and is being shaped carefully through strategic collaboration, structured planning, and ongoing refinement.
               </p>
               <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed">
-                Idea-Hub Ireland and Idea-Hub UK Ltd are platforms committed to developing purposeful ideas, creative solutions, and socially relevant innovation — bringing together thought, creativity, strategy, and collaboration to respond to real human and societal needs.
+                Idea-Hub Ireland and Idea-Hub UK Ltd are a platform committed to developing purposeful ideas, creative solutions, and socially relevant innovation — bringing together thought, creativity, strategy, and collaboration to respond to real human and societal needs.
               </p>
               <Link href="/about">
                 <Button variant="outline" className="mt-6 border-[oklch(0.18_0.06_255/0.3)] text-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.18_0.06_255/0.06)]">
