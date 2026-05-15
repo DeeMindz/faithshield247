@@ -112,7 +112,7 @@
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
   }
-  h1, h2, h3, .font-display {
+  h1, h2, h3, h4, .font-display {
     font-family: 'Playfair Display', serif;
   }
   button:not(:disabled),
@@ -135,11 +135,6 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
   }
 
   @media (min-width: 640px) {

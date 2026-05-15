@@ -32,6 +32,13 @@ import ExtensionDemo from "./pages/ExtensionDemo";
 import ActivityTimeline from "./pages/ActivityTimeline";
 import SafetyReport from "./pages/SafetyReport";
 import BusinessCanvas from "./pages/BusinessCanvas";
+import About from "./pages/About";
+import ForFamilies from "./pages/ForFamilies";
+import ForSchools from "./pages/ForSchools";
+import ForChurches from "./pages/ForChurches";
+import Waitlist from "./pages/Waitlist";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 function Router() {
   return (
@@ -43,6 +50,13 @@ function Router() {
       <Route path="/onboarding" component={Onboarding} />
       <Route path="/forgot-password" component={ForgotPassword} />
       <Route path="/reset-password" component={ResetPassword} />
+      <Route path="/about" component={About} />
+      <Route path="/for-families" component={ForFamilies} />
+      <Route path="/for-schools" component={ForSchools} />
+      <Route path="/for-churches" component={ForChurches} />
+      <Route path="/waitlist" component={Waitlist} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfUse} />
 
       {/* Protected dashboard routes */}
       <Route path="/dashboard">
