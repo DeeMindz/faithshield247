@@ -33,6 +33,8 @@ function ParticleCanvas() {
 
     const init = () => {
       resize();
+      // Guard: only create particles when canvas has real dimensions
+      if (canvas.width === 0 || canvas.height === 0) return;
       particles = Array.from({ length: 65 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -51,14 +53,12 @@ function ParticleCanvas() {
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        // Gentle mouse attraction
         const mx = mouseRef.current.x - p.x;
         const my = mouseRef.current.y - p.y;
         const md = Math.sqrt(mx * mx + my * my);
         if (md < 140 && md > 0) {
           p.vx += (mx / md) * 0.06;
           p.vy += (my / md) * 0.06;
-          // Clamp speed
           const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
           if (speed > 1.5) { p.vx = (p.vx / speed) * 1.5; p.vy = (p.vy / speed) * 1.5; }
         }
@@ -69,7 +69,6 @@ function ParticleCanvas() {
         ctx.fill();
       }
 
-      // Connections
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -89,8 +88,16 @@ function ParticleCanvas() {
       animId = requestAnimationFrame(draw);
     };
 
-    init();
-    draw();
+    // Defer init until canvas has real layout dimensions
+    const start = () => {
+      if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
+        animId = requestAnimationFrame(start);
+        return;
+      }
+      init();
+      draw();
+    };
+    animId = requestAnimationFrame(start);
 
     const onMouse = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
