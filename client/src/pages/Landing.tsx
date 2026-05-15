@@ -499,7 +499,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* -- About / Idea-Hub UK Ltd -- */}
+      {/* -- About / Idea-Hub -- */}
       <section className="py-20 bg-[oklch(0.97_0.01_80)]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -508,13 +508,13 @@ export default function Landing() {
                 About
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-[oklch(0.15_0.03_255)] mb-5 leading-snug">
-                An Idea-Hub UK Ltd initiative
+                An Idea-Hub-Led Initiative
               </h2>
               <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed mb-4">
-                FaithShield247 is an Idea-Hub UK Ltd concept focused on developing a child-focused digital safeguarding and values-based technology solution. It is currently in its early development phase and is being shaped carefully through strategic collaboration, structured planning, and ongoing refinement.
+                FaithShield247 is an Idea-Hub-led concept focused on developing a child-focused digital safeguarding and values-based technology solution. It is currently in its early development phase and is being shaped carefully through strategic collaboration, structured planning, and ongoing refinement.
               </p>
               <p className="text-[oklch(0.45_0.02_255)] text-base leading-relaxed">
-                Idea-Hub UK Ltd is a platform committed to developing purposeful ideas, creative solutions, and socially relevant innovation — bringing together thought, creativity, strategy, and collaboration to respond to real human and societal needs.
+                Idea-Hub is a platform committed to developing purposeful ideas, creative solutions, and socially relevant innovation — bringing together thought, creativity, strategy, and collaboration to respond to real human and societal needs.
               </p>
               <Link href="/about">
                 <Button variant="outline" className="mt-6 border-[oklch(0.18_0.06_255/0.3)] text-[oklch(0.18_0.06_255)] hover:bg-[oklch(0.18_0.06_255/0.06)]">
